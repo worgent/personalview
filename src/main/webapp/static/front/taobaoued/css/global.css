@@ -1,0 +1,94 @@
+@charset "utf-8";
+/*
+	power by http://www.inxedu.com/
+	v1.0 | 2015/06/06
+ 	-----------------------------------------
+	westdrug | 2015(yy)/08(mm)/05(dd)
+	http://www.inxedu.com/
+*/
+/* #custom
+================================================== */
+.clearfix:before, .clearfix:after { content: ""; display: table; font-size:0 !important; line-height:0!important; height:0!important;}
+.clearfix:after { clear: both; }
+.clear {clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0;}
+.fl {float: left;}.fr {float: right;}
+.pr {position: relative; }.pa {position: absolute; }
+.f-fH {font-family: 'SimHei';}.f-fM {font-family: 'Microsoft YaHei';}.f-fA {font-family: 'SimSun';}.f-fG {font-family: 'Georgia';}
+.unBg {background: none !important;}
+.unBr {border: none !important;}
+.unFw {font-weight: normal;}
+.dis{display:block;}
+.disIb {  display: inline-block;*display: inline;*zoom: 1;}
+.undis{display:none;}
+.of{overflow: hidden;}
+.ov{overflow: visible;}
+.vam {vertical-align: middle;}
+.tal {text-align: left;}
+.tac {text-align: center;}
+.tar {text-align: right;}
+.hand {cursor: pointer;}
+.zoom {_zoom: 1;}
+.fsize12 {font-size: 12px;}
+.fsize14 {font-size: 14px;}
+.fsize16 {font-size: 16px;}
+.fsize18 {font-size: 18px;}
+.fsize20 {font-size: 20px;}
+.fsize24 {font-size: 24px;}
+.fsize34 {font-size: 34px;}
+.mt5 {margin-top: 5px;}
+.mr5 {margin-right: 5px;}
+.ml5 {margin-left: 5px;}
+.mt10 {margin-top: 10px;}
+.mr10 {margin-right: 10px;}
+.mb10 {margin-bottom: 10px;}
+.ml10 {margin-left: 10px;}
+.mt15 {margin-top: 15px;}
+.mr15 {margin-right: 15px;}
+.mb15 {margin-bottom: 15px;}
+.ml15 {margin-left: 15px;}
+.mt20 {margin-top: 20px;}
+.mr20 {margin-right: 20px;}
+.mb20 {margin-bottom: 20px;}
+.ml20 {margin-left: 20px;}
+.mt30 {margin-top: 30px;}
+.mr30 {margin-right: 30px;}
+.mb30 {margin-bottom: 30px;}
+.ml30 {margin-left: 30px;}
+.mt40 {margin-top: 40px;}
+.mr40 {margin-right: 40px;}
+.mb40 {margin-bottom: 40px;}
+.ml40 {margin-left: 40px;}
+.mt50 {margin-top: 50px;}
+.mr50 {margin-right: 50px;}
+.mb50 {margin-bottom: 50px;}
+.ml50 {margin-left: 50px;}
+.pt10 {padding-top: 10px;}
+.pr10 {padding-right: 10px;}
+.pb10 {padding-bottom: 10px;}
+.pl10 {padding-left: 10px;}
+.pt15 {padding-top: 15px;}
+.pr15 {padding-right: 15px;}
+.pb15 {padding-bottom: 15px;}
+.pl15 {padding-left: 15px;}
+.pt20 {padding-top: 20px;}
+.pr20 {padding-right: 20px;}
+.pb20 {padding-bottom: 20px;}
+.pl20 {padding-left: 20px;}
+.pt30 {padding-top: 30px;}
+.pt50 {padding-top: 50px;}
+.pr50 {padding-right: 50px;}
+.pb50 {padding-bottom: 50px;}
+.pl50 {padding-left: 50px;}
+.icon14 {display: inline-block;*display: inline;*zoom: 1;height: 14px;width: 14px;vertical-align: middle;}
+.icon16 {display: inline-block;*display: inline;*zoom: 1;height: 16px;width: 16px;vertical-align: middle;}
+.icon18 {display: inline-block;*display: inline;*zoom: 1;height: 18px;width: 18px;vertical-align: middle;}
+.icon24 {display: inline-block;*display: inline;*zoom: 1;height: 24px;width: 24px;vertical-align: middle;}
+.icon30 {display: inline-block;*display: inline;*zoom: 1;height: 30px;width: 30px;vertical-align: middle;}
+.txtOf {display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.hLh20 {height: 20px;line-height: 20px;}
+.hLh30 {height: 30px;line-height: 30px;}
+.col-7 {width: 70%;}
+.col-3 {width: 30%;}
+.lt-ie9.lt-ie8 .col-7,.lt-ie9 .col-7 {width: 75%;}
+.lt-ie9.lt-ie8 .col-3,.lt-ie9 .col-3 {width: 25%;}
+.container {margin-left: auto;margin-right: auto;width: 1160px;}

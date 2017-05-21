@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.cms.dao.ArticleEvalDao">
+    
+	<sql id="articleEvalColumns">
+		a.id AS "id",
+		a.article_id AS "article.id",
+		a.create_by AS "user.id",
+		a.eval AS "eval",
+		a.session_id AS "sessionId",
+		a.create_date AS "createDate",
+		b.title AS "article.title"
+	</sql>
+	
+	<sql id="articleEvalJoins">
+		LEFT JOIN cms_article b ON b.id = a.article_id
+	</sql>
+    
+	<select id="get" resultType="ArticleEval">
+		SELECT 
+			<include refid="articleEvalColumns"/>
+		FROM cms_article_eval a
+		<include refid="articleEvalJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="ArticleEval">
+		SELECT 
+			<include refid="articleEvalColumns"/>
+		FROM cms_article_eval a
+		<include refid="articleEvalJoins"/>
+		<where>
+			
+			<if test="article != null and article.id != null and article.id != ''">
+				AND a.article_id = #{article.id}
+			</if>
+			<if test="user != null and user.id != null and user.id != ''">
+				AND a.create_by = #{user.id}
+			</if>
+			<if test="eval != null and eval != ''">
+				AND a.eval = #{eval}
+			</if>
+			<if test="sessionId != null and sessionId != ''">
+				AND a.session_id = #{sessionId}
+			</if>
+			<if test="createDate != null and createDate != ''">
+				AND a.create_date = #{createDate}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.create_date ASC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="ArticleEval">
+		SELECT 
+			<include refid="articleEvalColumns"/>
+		FROM cms_article_eval a
+		<include refid="articleEvalJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.create_date ASC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO cms_article_eval
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">
+				id,
+				</if>
+                <if test="article.id != null">
+				article_id,
+				</if>
+                <if test="user.id != null">
+				create_by,
+				</if>
+                <if test="eval != null">
+				eval,
+				</if>
+                <if test="sessionId != null">
+				session_id,
+				</if>
+                <if test="createDate != null">
+				create_date,
+				</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">
+				#{id},
+                </if>
+                <if test="article.id != null">
+				#{article.id},
+                </if>
+                <if test="user.id != null">
+				#{user.id},
+                </if>
+                <if test="eval != null">
+				#{eval},
+                </if>
+                <if test="sessionId != null">
+				#{sessionId},
+                </if>
+                <if test="createDate != null">
+				#{createDate},
+                </if>
+        </trim>
+
+	</insert>
+	
+	<update id="update">
+		UPDATE cms_article_eval
+        <set>
+                    <if test="article.id != null">
+					article_id = #{article.id},
+					</if>
+                    <if test="user.id != null">
+					create_by = #{user.id},
+					</if>
+                    <if test="eval != null">
+					eval = #{eval},
+					</if>
+                    <if test="sessionId != null">
+					session_id = #{sessionId},
+					</if>
+                    <if test="createDate != null">
+					create_date = #{createDate},
+					</if>
+        </set>
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM cms_article_eval
+		<choose>
+			<when test="id !=null and id != ''">
+				WHERE id = #{id}
+			</when>
+			<otherwise>
+				WHERE article_id = #{article.id}
+			</otherwise>
+		</choose>
+	</update>
+	
+</mapper>
